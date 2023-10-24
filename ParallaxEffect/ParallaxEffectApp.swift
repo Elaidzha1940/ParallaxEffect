@@ -1,9 +1,11 @@
+//  */
 //
-//  ParallaxEffectApp.swift
-//  ParallaxEffect
+//  Project: ParallaxEffect
+//  File: ParallaxEffectApp.swift
+//  Created by: Elaidzha Shchukin
+//  Date: 24.10.2023
 //
-//  Created by Elaidzha Shchukin on 24.10.2023.
-//
+//  */
 
 import SwiftUI
 
