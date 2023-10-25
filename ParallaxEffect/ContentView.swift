@@ -36,12 +36,14 @@ struct ParallaxEffect: View {
            Spacer()
             
             // background
-                .frame(height: 400)
+                .frame(height: isScrolled ? 400 + offsetY : 400)
                 .background {
                     Image("ai")
                         .resizable()
                         .scaledToFit()
                         .offset(y: isScrolled ? -offsetY : 0)
+                        .scaleEffect(isScrolled ? offsetY / 200 + 1 : 1)
+                        .blur(radius: isScrolled ? offsetY / 10 : 0)
                 }
         })
         .frame(height: 400)
