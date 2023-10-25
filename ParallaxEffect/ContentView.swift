@@ -14,10 +14,11 @@ struct ContentView: View {
         
         VStack {
             ScrollView {
-                ContentList()
                 ParallaxEffect()
+                ContentList()
             }
         }
+        .ignoresSafeArea()
     }
 }
 
@@ -32,12 +33,14 @@ struct ParallaxEffect: View {
            Spacer()
             
             // background
+                .frame(height: 400)
                 .background {
                     Image("ai")
                         .resizable()
                         .scaledToFit()
                 }
         })
+        .frame(height: 400)
     }
 }
  // MARK: Content List
