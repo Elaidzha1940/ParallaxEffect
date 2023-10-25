@@ -20,12 +20,12 @@ struct ContentView: View {
             }
         }
         .ignoresSafeArea()
+        .preferredColorScheme(.dark)
     }
 }
 
 #Preview {
     ContentView()
-        .preferredColorScheme(.dark)
 }
 
 struct ParallaxEffect: View {
@@ -33,7 +33,7 @@ struct ParallaxEffect: View {
         GeometryReader(content: { geometry in
             let offsetY = geometry.frame(in: .global).minY
             let isScrolled = offsetY > 0
-           Spacer()
+            Spacer()
             
             // background
                 .frame(height: isScrolled ? 400 + offsetY : 400)
@@ -43,13 +43,14 @@ struct ParallaxEffect: View {
                         .scaledToFit()
                         .offset(y: isScrolled ? -offsetY : 0)
                         .scaleEffect(isScrolled ? offsetY / 200 + 1 : 1)
-                        .blur(radius: isScrolled ? offsetY / 10 : 0)
+                    //.blur(radius: isScrolled ? offsetY / 10 : 0)
                 }
         })
         .frame(height: 400)
     }
 }
- // MARK: Content List
+
+// MARK: Content List
 struct ContentList: View {
     var body: some View {
         
@@ -60,7 +61,7 @@ struct ContentList: View {
                 VStack(alignment: .leading) {
                     RoundedRectangle(cornerRadius: 15, style: .continuous)
                         .frame(width: 280, height: 25)
-
+                    
                     RoundedRectangle(cornerRadius: 15, style: .continuous)
                         .frame(width: 210, height: 25)
                     
