@@ -12,6 +12,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
+        // content
         VStack {
             ScrollView {
                 ParallaxEffect()
@@ -30,6 +31,8 @@ struct ContentView: View {
 struct ParallaxEffect: View {
     var body: some View {
         GeometryReader(content: { geometry in
+            let offsetY = geometry.frame(in: .global).minY
+            let isScrolled = offsetY > 0
            Spacer()
             
             // background
@@ -38,6 +41,7 @@ struct ParallaxEffect: View {
                     Image("ai")
                         .resizable()
                         .scaledToFit()
+                        .offset(y: isScrolled ? -offsetY : 0)
                 }
         })
         .frame(height: 400)
@@ -61,8 +65,9 @@ struct ContentList: View {
                     RoundedRectangle(cornerRadius: 15, style: .continuous)
                         .frame(width: 150, height: 25)
                 }
-                .opacity(0.2)
+                .opacity(0.4)
             }
+            .opacity(0.3)
             .padding(.leading)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
